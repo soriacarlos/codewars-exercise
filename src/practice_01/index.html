@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>String ends with?</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Highlight.js CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" rel="stylesheet">
+    <!-- Highlight.js JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll(); // Inicializa el resaltado de código
+    </script>
+</head>
+<body class="bg-dark text-light">
+
+<div class="container my-5">
+    <div class="card shadow-sm border-0">
+        <div class="card-header bg-primary text-white">
+            <h1>String ends with?</h1>
+            <span class="badge bg-dark text-white">7 kyu</span>
+        </div>
+        <div class="card-body">
+            <p>Complete the solution so that it returns true if the first argument(string) passed in ends with the 2nd argument (also a string).</p>
+            <h3>Examples</h3>
+<pre><code class="language-php">
+    solution('abc', 'bc') // returns true
+    solution('abc', 'd') // returns false
+
+</code></pre>
+<h3>Test sugeridos</h3>
+    <pre><code class="language-php">
+class StringEndsWithTest extends TestCase {
+  public function testFixedTests() {
+    $this->assertSame(true, solution("samurai", "ai"));
+    $this->assertSame(false, solution("sumo", "omo"));
+    $this->assertSame(true, solution("ninja", "ja"));
+    $this->assertSame(true, solution("sensei", "i"));
+    $this->assertSame(false, solution("samurai", "ra"));
+    $this->assertSame(false, solution("abc", "abcd"));
+    $this->assertSame(true, solution("abc", "abc"));
+    $this->assertSame(true, solution("abcabc", "bc"));
+    $this->assertSame(false, solution('ails', 'fails'));
+    $this->assertSame(true, solution('fails', 'ails'));
+    $this->assertSame(false, solution('this', 'fails'));
+    $this->assertSame(true, solution('yes this will pass', ''));
+    $this->assertSame(false, solution('this will not pass', '`^$<>()[]*|'));
+    $this->assertSame(false, solution("abc\n", 'abc'), 'Watch out for \n in the end');
+  }
+}</code></pre>
+            <!-- Desplegable "Solución" -->
+            <button class="btn btn-primary mt-3" type="button" data-bs-toggle="collapse" data-bs-target="#solution" aria-expanded="false" aria-controls="solution">
+                Solución
+            </button>
+            <div class="collapse mt-3" id="solution">
+                <div class="card card-body bg-light text-dark">
+<h3>Resolución:</h3>
+<pre><code class="language-php">
+public function solution($string, $ending): bool
+{
+    // En caso de ser un string vacío, siempre retornará true
+    if ($ending === '') return true;
+
+    return substr($string, -strlen($ending)) === $ending;
+}
+</code></pre>
+<h3>Tests</h3>
+<pre><code class="language-php">
+use Fox\Practice\practice_01\StringEndsWith;
+
+class StringEndsWithTest extends TestCase
+{
+    public function testFixedTests()
+    {
+        // Instancia de clase para obtener método solution
+        $stringsEndsWith = new StringEndsWith();
+
+        $this->assertSame(true, $stringsEndsWith->solution("samurai", "ai"));
+        $this->assertSame(false, $stringsEndsWith->solution("sumo", "omo"));
+        $this->assertSame(true, $stringsEndsWith->solution("ninja", "ja"));
+        $this->assertSame(true, $stringsEndsWith->solution("sensei", "i"));
+        $this->assertSame(false, $stringsEndsWith->solution("samurai", "ra"));
+        $this->assertSame(false, $stringsEndsWith->solution("abc", "abcd"));
+        $this->assertSame(true, $stringsEndsWith->solution("abc", "abc"));
+        $this->assertSame(true, $stringsEndsWith->solution("abcabc", "bc"));
+        $this->assertSame(false, $stringsEndsWith->solution('ails', 'fails'));
+        $this->assertSame(true, $stringsEndsWith->solution('fails', 'ails'));
+        $this->assertSame(false, $stringsEndsWith->solution('this', 'fails'));
+        $this->assertSame(true, $stringsEndsWith->solution('yes this will pass', ''));
+        $this->assertSame(false, $stringsEndsWith->solution('this will not pass', '`^$<>()[]*|'));
+        $this->assertSame(false, $stringsEndsWith->solution("abc\n", 'abc'), 'Watch out for \n in the end');
+    }
+}
+</code></pre>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card-footer text-muted text-end">
+            © 2025 PHP Exercise
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -2,7 +2,7 @@
 
 namespace Fox\Practice\practice_01;
 
-class StringsEndsWith
+class StringEndsWith
 {
     /**
      * Método para comparar terminación de strings según cantidad de caracteres

@@ -3,14 +3,14 @@
 namespace Fox\Practice\tests;
 
 use PHPUnit\Framework\TestCase;
-use Fox\Practice\practice_01\StringsEndsWith;
+use Fox\Practice\practice_01\StringEndsWith;
 
 class StringEndsWithTest extends TestCase
 {
     public function testFixedTests()
     {
         // Instancia de clase para obtener método solution
-        $stringsEndsWith = new StringsEndsWith();
+        $stringsEndsWith = new StringEndsWith();
 
         $this->assertSame(true, $stringsEndsWith->solution("samurai", "ai"));
         $this->assertSame(false, $stringsEndsWith->solution("sumo", "omo"));
