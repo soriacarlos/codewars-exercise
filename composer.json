@@ -11,8 +11,7 @@
     "authors": [
         {
             "name": "Carlos Soria",
-            "homepage": "https://soriacarlos.com/",
-            "Github": "https://github.com/soriacarlos/"
+            "homepage": "https://soriacarlos.com/"
         }
     ],
     "require-dev": {
