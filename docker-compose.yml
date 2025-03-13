@@ -1,0 +1,11 @@
+services:
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: codewars-practice
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/var/www/html
+    command: ["php", "-S", "0.0.0.0:8000", "-t", "src"]
